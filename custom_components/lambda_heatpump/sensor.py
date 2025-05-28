@@ -1,7 +1,7 @@
 """Sensor handling for Lambda Heatpump."""
 from datetime import timedelta
 import logging
-from pymodbus.client.sync import ModbusTcpClient
+from pymodbus.client import ModbusTcpClient
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from . import DOMAIN
