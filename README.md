@@ -12,7 +12,7 @@ This is a custom integration for Home Assistant to monitor and retrieve data fro
 1. Ensure that [HACS](https://hacs.xyz/) is installed in your Home Assistant setup.
 2. Go to **HACS > Integrations**.
 3. Click the three dots in the top-right corner and select **Custom repositories**.
-4. Add the repository URL: `https://github.com/route662/Lambda-Heatpump` and select **Integration** as the category.
+4. Add the repository URL: `https://github.com/CypRyanCyp/HA-Lambda-Heatpump` and select **Integration** as the category.
 5. Search for "Lambda Heatpump" in HACS and install the integration.
 6. Restart Home Assistant.
 7. Add the integration via the Home Assistant UI and configure the IP address and update interval.
@@ -55,7 +55,7 @@ Dies ist eine benutzerdefinierte Integration für Home Assistant, um Daten von L
 1. Stelle sicher, dass [HACS](https://hacs.xyz/) in deiner Home Assistant-Installation eingerichtet ist.
 2. Gehe zu **HACS > Integrationen**.
 3. Klicke oben rechts auf die drei Punkte und wähle **Benutzerdefinierte Repositories**.
-4. Füge die Repository-URL `https://github.com/route662/Lambda-Heatpump` hinzu und wähle **Integration** als Kategorie.
+4. Füge die Repository-URL `https://github.com/CypRyanCyp/HA-Lambda-Heatpump` hinzu und wähle **Integration** als Kategorie.
 5. Suche in HACS nach "Lambda Wärmepumpe" und installiere die Integration.
 6. Starte Home Assistant neu.
 7. Füge die Integration über die Benutzeroberfläche von Home Assistant hinzu und konfiguriere die IP-Adresse sowie das Abfrageintervall.
