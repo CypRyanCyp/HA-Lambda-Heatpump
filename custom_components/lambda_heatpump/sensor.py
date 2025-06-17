@@ -101,6 +101,38 @@ SENSORS = [
     {"name": "Heating Circuit 1 Set Flow Line Offset Temperature", "register": 5050, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
     {"name": "Heating Circuit 1 Set Heating Mode Room Temperature", "register": 5051, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
     {"name": "Heating Circuit 1 Set Cooling Mode Room Temperature", "register": 5052, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+
+    # Heating Circuit 2
+    {"name": "Heating Circuit 2 Error Number", "register": 5100, "unit": "", "scale": 1, "precision": 0, "data_type": "int16", "state_class": "total"},
+    {"name": "Heating Circuit 2 Operating State", "register": 5101, "unit": "", "scale": 1, "precision": 0, "data_type": "uint16", "state_class": "total",
+     "description_map": ["Heating", "Eco", "Cooling", "Floor-dry", "Frost", "Max-Temp", "Error", "Service", "Holiday", "Central Heating Summer",
+                         "Central Cooling Winter", "Prio-Stop", "Off", "Release-Off", "Time-Off", "Standby", "Standby-Heating", "Standby-Eco",
+                         "Standby-Cooling", "Standby-Frost", "Standby-Floor-dry"]},
+    {"name": "Heating Circuit 2 Flow Line Temperature", "register": 5102, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Return Line Temperature", "register": 5103, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Room Device Temperature", "register": 5104, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Set Flow Line Temperature", "register": 5105, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Operating Mode", "register": 5106, "unit": "", "scale": 1, "precision": 0, "data_type": "int16", "state_class": "total",
+     "description_map": ["Off", "Manual", "Automatik", "Auto-Heating", "Auto-Cooling", "Frost", "Summer", "Floor-dry"]},
+    {"name": "Heating Circuit 2 Set Flow Line Offset Temperature", "register": 5150, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Set Heating Mode Room Temperature", "register": 5151, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 2 Set Cooling Mode Room Temperature", "register": 5152, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+
+    # Heating Circuit 3
+    {"name": "Heating Circuit 3 Error Number", "register": 5200, "unit": "", "scale": 1, "precision": 0, "data_type": "int16", "state_class": "total"},
+    {"name": "Heating Circuit 3 Operating State", "register": 5201, "unit": "", "scale": 1, "precision": 0, "data_type": "uint16", "state_class": "total",
+     "description_map": ["Heating", "Eco", "Cooling", "Floor-dry", "Frost", "Max-Temp", "Error", "Service", "Holiday", "Central Heating Summer",
+                         "Central Cooling Winter", "Prio-Stop", "Off", "Release-Off", "Time-Off", "Standby", "Standby-Heating", "Standby-Eco",
+                         "Standby-Cooling", "Standby-Frost", "Standby-Floor-dry"]},
+    {"name": "Heating Circuit 3 Flow Line Temperature", "register": 5202, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Return Line Temperature", "register": 5203, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Room Device Temperature", "register": 5204, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Set Flow Line Temperature", "register": 5205, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Operating Mode", "register": 5206, "unit": "", "scale": 1, "precision": 0, "data_type": "int16", "state_class": "total",
+     "description_map": ["Off", "Manual", "Automatik", "Auto-Heating", "Auto-Cooling", "Frost", "Summer", "Floor-dry"]},
+    {"name": "Heating Circuit 3 Set Flow Line Offset Temperature", "register": 5250, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Set Heating Mode Room Temperature", "register": 5251, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
+    {"name": "Heating Circuit 3 Set Cooling Mode Room Temperature", "register": 5252, "unit": "°C", "scale": 0.1, "precision": 1, "data_type": "int16", "device_class": "temperature", "state_class": "measurement"},
 ]
 
 REGISTER_BLOCKS = [
@@ -114,6 +146,10 @@ REGISTER_BLOCKS = [
     (3050, 3050), # Buffer: Register 3050
     (5000, 5006), # Heating Circuit 1: Register 5000 bis 5006
     (5050, 5052), # Heating Circuit 1: Register 5050 bis 5052
+    (5100, 5106), # Heating Circuit 2: Register 5100 bis 5106
+    (5150, 5152), # Heating Circuit 2: Register 5150 bis 5152
+    (5200, 5206), # Heating Circuit 3: Register 5200 bis 5206
+    (5250, 5252), # Heating Circuit 3: Register 5250 bis 5252
 ]
 
 class ModbusClientManager:
@@ -200,6 +236,10 @@ async def async_setup_entry(hass, entry, async_add_entities):
         # (sensor, "Solar") for sensor in SENSORS[41:46]  # Solar auskommentiert
     ] + [
         (sensor, "Heating Circuit 1") for sensor in SENSORS[41:51]
+    ] + [
+        (sensor, "Heating Circuit 2") for sensor in SENSORS[51:61]
+    ] + [
+        (sensor, "Heating Circuit 3") for sensor in SENSORS[61:]
     ]
 
     # Sensoren erstellen und hinzufügen
