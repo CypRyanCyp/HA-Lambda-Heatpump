@@ -2,6 +2,7 @@
 from datetime import timedelta
 import logging
 from pymodbus.client import ModbusTcpClient
+from pymodbus import __version__ as pymodbus_version
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from . import DOMAIN
@@ -157,6 +158,7 @@ class ModbusClientManager:
 
     def __init__(self, ip_address):
         self.client = ModbusTcpClient(ip_address)
+        _LOGGER.info("Lambda Heatpump: using pymodbus %s", pymodbus_version)
 
     def fetch_data(self, sensors):
         """Fetch data from the Lambda Heatpump using predefined register blocks."""
@@ -167,7 +169,20 @@ class ModbusClientManager:
                 _LOGGER.debug(f"Reading registers from {start_register} to {end_register} (count: {count})")
 
                 # Lese die Register im definierten Block
-                result = self.client.read_holding_registers(start_register, count=count, slave=1)
+                #result = self.client.read_holding_registers(start_register, count=count, unit=1)
+                result = self.client.read_holding_registers(start_register, count=count, device_id=1)
+                
+
+
+                #try:
+                  #  result = self.client.read_holding_registers(start_register, count=count, unit=1)
+                #except TypeError:
+                    #result = self.client.read_holding_registers(start_register, count=count, slave=1)
+
+
+
+
+                
                 if result.isError():
                     _LOGGER.error(f"Error reading registers from {start_register} to {end_register}: {result}")
                     continue
@@ -236,11 +251,14 @@ async def async_setup_entry(hass, entry, async_add_entities):
         # (sensor, "Solar") for sensor in SENSORS[41:46]  # Solar auskommentiert
     ] + [
         (sensor, "Heating Circuit 1") for sensor in SENSORS[41:51]
-    ] + [
-        (sensor, "Heating Circuit 2") for sensor in SENSORS[51:61]
-    ] + [
-        (sensor, "Heating Circuit 3") for sensor in SENSORS[61:]
     ]
+
+    # Optionale Heizkreise (basierend auf Konfiguration)
+    if entry.data.get("has_heat_circuit_2", False):
+        grouped_sensors += [(sensor, "Heating Circuit 2") for sensor in SENSORS[51:61]]
+
+    if entry.data.get("has_heat_circuit_3", False):
+        grouped_sensors += [(sensor, "Heating Circuit 3") for sensor in SENSORS[61:]]
 
     # Sensoren erstellen und hinzufügen
     sensors = [LambdaHeatpumpSensor(coordinator, sensor, device_name) for sensor, device_name in grouped_sensors]
